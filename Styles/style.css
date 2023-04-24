@@ -1,15 +1,17 @@
 body {
     
-    background-color: rgb(128, 219, 128);
+    background-color: rgb(141, 190, 141);
     font-family: 'SF Pixelate', sans-serif;
     margin: 0;
 }
 
 
 header img{
+    display:flex;
+    justify-content: center;
     width: 500px;
     height: 150px;
-    margin-left: 725px;
+    margin-left: 660px;
 
 }
 .container {
@@ -23,9 +25,15 @@ header img{
     text-align: center;
 }
  
+.startgame{
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
 .instructions h1{
     text-decoration: underline;
     padding-left: 50px;
+    text-align: center;
 }
 #canvas {
     background-color: rgb(12, 68, 12);
@@ -40,15 +48,21 @@ canvas{
 }
 
 
-.startgame img {
+.startbutton{
 
     height: 100px;
     width: 200px;
     padding-top: 350px;
-    margin-left: 60px;
+    padding-right: 120px;
 }
 
 .score{
     padding-right: 200px;
     padding-left: 10px;
 }
+
+.gameoverbutton {
+    display: none;
+    width: 200px;
+    height: 180px;
+} 
