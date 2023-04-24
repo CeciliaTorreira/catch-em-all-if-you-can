@@ -18,13 +18,13 @@ this.pokemon = new Pokemon() //! Creating a Pokémon/Player using the class in P
   
 //* COUNTER
 
-this.score = scoreDOM.innerText //! Má tarde usaré la variable para implementar la función de contador por cada Pokéball destruida/esquivada 
-
+this.score = Number(scoreDOM.innerText) //! Implemented function to update the score each time a Pokéball goes out of the canvas.
+                                        //! Needs improvement so the score goes up each time you destroy a Pokéball.
 //* WIP
 
 //* GAME OVER
 // WIP
-
+this.isGameOn = true;
 }
 
 
@@ -39,7 +39,7 @@ this.score = scoreDOM.innerText //! Má tarde usaré la variable para implementa
  drawBackground = ()=> {
    ctx.drawImage(this.background, 0, 0, canvasDOM.width, canvasDOM.height)
 }
-
+ //* POKÉBALL
  addPokeball = () =>{
   
   if (this.pokeballArr.length === 0 || 
@@ -52,7 +52,36 @@ this.score = scoreDOM.innerText //! Má tarde usaré la variable para implementa
 }
  //? Al principio aparecen las Pokéball pero no siguen generándose y apareciendo.
  //? Estoy siguiendo como referencia el método de aparición de los tubos que usamos en el flappy bird
-//! SOLUCIONADO
+//! SORTED
+  
+ pokeballOut = () => {
+   if (this.pokeballArr[0].y === canvas.height){
+    this.score += 10;
+    scoreDOM.innerText = this.score
+    this.pokeballArr.shift()
+   }
+ }
+
+ //* COLLISIONS
+
+ //* Player and Pokéball collision
+  pokePlayerCollision = () => {
+
+this.pokeballArr.forEach((eachPokeball) =>{
+
+ if (
+  this.pokemon.x < eachPokeball.x + eachPokeball.w-50 &&
+  this.pokemon.x  + this.pokemon.w-50 > eachPokeball.x&&
+  this.pokemon.y-50  < eachPokeball.y-50 + eachPokeball.h-50 &&
+  this.pokemon.h + this.pokemon.y > eachPokeball.y
+)  {
+console.log("You got caught!")  //! We'll implement game over later
+ 
+   } 
+ })
+}
+
+
 
 //! EJECUTION
   gameLoop = () => {
@@ -68,13 +97,15 @@ this.clearCanvas()
 // this.pokeball.pokeballMovement()   //! POkéball falling added to test for later 
                                    //! (I'll create an array and make them randomly appear falling from the top of the canvas)
 
-                                   
+this.pokePlayerCollision()                                
 
 this.addPokeball()
 this.pokeballArr.forEach((eachPokeball) =>{
     eachPokeball.pokeballMovement()
   })
-  
+this.pokeballOut()
+
+
 
 //* ELEMENTS ON CANVAS
 this.drawBackground()
@@ -87,12 +118,10 @@ this.pokeballArr.forEach((eachPokeball) => {
 
 
 
-
-
-
-
 //*  RECURSION 
+if(this.isGameOn === true){
   requestAnimationFrame(this.gameLoop)
+}
  }
   
 

@@ -40,11 +40,11 @@ class Pokemon {
     }
     if (event.code === "ArrowDown" && this.y <= canvas.height - this.w) {
       this.y += 5;
-      console.log("Pressing down key")        //! Comprobé que me detectase las teclas
+      console.log("Pressing down key")        //! Console log working.
     }
     //if (event.code === "ArrowRight" && event.code === "ArrowUp" && this.x <= canvas.width - this.w) {
-    //  this.x += 4;                                    //! Conseguí movimiento en diagonal pero no me gusta el resultado, quiero buscar la forma de optimizarlo.
-    //  this.y -= 4;                                    //todo Trabajar después en esto ya que el resultado no es el esperado.
+    //  this.x += 4;                                    //! I achieved diagonal movement but it was not as good as I expected.
+    //  this.y -= 4;                                    //todo Will work on that as a bonus
     
   };
 
