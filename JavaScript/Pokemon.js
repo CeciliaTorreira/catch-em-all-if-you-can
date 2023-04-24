@@ -3,12 +3,16 @@ class Pokemon {
     constructor(){
         //!Pokémon(Player) properties
     this.img = new Image()
-    this.img.src= "../Images/charmander.png"
+    this.img.src= "../Images/bulbasaur.png"  //! Pokémon was Charmander at first, I changed it
     this.x = 180;
-    this.y = 580; 
-    this.w = 120;
+    this.y = 500; 
+    this.w = 150;
     this.h = 200;
-    this.speed = 5;
+                  //* At first I added the pokemon speed thinking I could make it go constantly up creating the effect you were advancing through
+                  //* the canvas and you had to control that to avoid the enemies but it didn't work out with the background and I discarded the idea
+
+
+     
 
 
     }
@@ -20,9 +24,29 @@ class Pokemon {
    }
 
   //! Pokémon movement
-   
-    
-  
  
+  pokemonMovement = (event) => {
+    if (event.code === "ArrowRight" && this.x <= canvas.width - 110) {
+      this.x += 5;
+      console.log("Pressing right key")
+    }
+    if (event.code === "ArrowLeft" && this.x >= -40) {
+      this.x -= 5;
+      console.log("Pressing left key")
+    }
+    if (event.code === "ArrowUp" && this.y >= -50) {
+      this.y -= 5;
+      console.log("Pressing up key")
+    }
+    if (event.code === "ArrowDown" && this.y <= canvas.height - this.w) {
+      this.y += 5;
+      console.log("Pressing down key")        //! Comprobé que me detectase las teclas
+    }
+    //if (event.code === "ArrowRight" && event.code === "ArrowUp" && this.x <= canvas.width - this.w) {
+    //  this.x += 4;                                    //! Conseguí movimiento en diagonal pero no me gusta el resultado, quiero buscar la forma de optimizarlo.
+    //  this.y -= 4;                                    //todo Trabajar después en esto ya que el resultado no es el esperado.
+    
+  };
 
+  
 }
