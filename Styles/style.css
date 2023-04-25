@@ -68,8 +68,6 @@ header img{
 canvas{
  margin-top: 0px;
 
-
-
 }
 
 
@@ -93,8 +91,20 @@ canvas{
     margin-right: 230px;
 }
 
-.gameoverbutton {
+
+.gameover {
     display: none;
+    margin-top: 100px;
+    flex-direction: column;
+    align-items: center;
+}
+.gameoverbutton {
+   
     width: 200px;
     height: 180px;
 } 
+.restartbutton {
+   margin-top: 100px;
+   width: 230px;
+   height: 150px;
+}

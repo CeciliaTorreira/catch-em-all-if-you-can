@@ -20,11 +20,16 @@ this.pokemon = new Pokemon() //! Creating a Pokémon/Player using the class in P
 
 this.score = Number(scoreDOM.innerText) //! Implemented function to update the score each time a Pokéball goes out of the canvas.
                                         //! Needs improvement so the score goes up each time you destroy a Pokéball.
-//* WIP
 
-//* GAME OVER
-// WIP
+//* MUSIC
+this.mainTheme = new Audio("../Sounds/Pokemon-BlueRed-Route-1.mp3");
+this.mainTheme.loop = true;
+
+
+//* IS GAME ON 
+
 this.isGameOn = true;
+
 }
 
 
@@ -48,18 +53,30 @@ this.isGameOn = true;
     let randomSpawnX = Math.random() * (canvasDOM.width - this.pokeball.w)
     let pokeball = new Pokeball(randomSpawnX);
     this.pokeballArr.push(pokeball)
-  }
+
+    if (this.score >= 100)
+     {pokeball.speed = 2.5
+     pokeball.img.src ="../Images/greatball.png"}
+
+  /*  if (this.score >= 300)
+      {pokeball.speed = 2.75
+      pokeball.img.src ="../Images/ultraball2.png"}
+  */
+    else if (this.score >= 300)
+      {pokeball.speed = 3
+       pokeball.img.src ="../Images/masterball.png"}
+  };
 }
  //? Al principio aparecen las Pokéball pero no siguen generándose y apareciendo.
  //? Estoy siguiendo como referencia el método de aparición de los tubos que usamos en el flappy bird
 //! SORTED
-  
+   
  pokeballOut = () => {
    if (this.pokeballArr[0].y === canvas.height){
+    this.pokeballArr.shift()
     this.score += 10;
     scoreDOM.innerText = this.score
-    this.pokeballArr.shift()
-   }
+   };
  }
 
  //* COLLISIONS
@@ -69,42 +86,52 @@ this.isGameOn = true;
 
 this.pokeballArr.forEach((eachPokeball) =>{
 
- if (
+ if ( 
   this.pokemon.x < eachPokeball.x + eachPokeball.w-50 &&
-  this.pokemon.x  + this.pokemon.w-50 > eachPokeball.x&&
+  this.pokemon.x  + this.pokemon.w-50 > eachPokeball.x &&
   this.pokemon.y-50  < eachPokeball.y-50 + eachPokeball.h-50 &&
-  this.pokemon.h + this.pokemon.y > eachPokeball.y
+  this.pokemon.h + this.pokemon.y > eachPokeball.y+50
 )  {
 console.log("You got caught!")  //! We'll implement game over later
- 
+this.gameOver()
    } 
  })
 }
 
+//* GAME OVER 
+
+gameOver = () => {
+
+  this.isGameOn = false;
+  this.mainTheme.pause();
+  canvasDOM.style.display = "none";
+  gameOverScreenDOM.style.display = "flex";
+  
+
+
+}  
 
 
 //! EJECUTION
+
   gameLoop = () => {
-
-
- 
 
 //*  CLEAR CANVAS
 this.clearCanvas()
 
-
+//* MUSIC
+this.mainTheme.play()
 //* OBJECTS MOVEMENTS AND ACTIONS
 // this.pokeball.pokeballMovement()   //! POkéball falling added to test for later 
                                    //! (I'll create an array and make them randomly appear falling from the top of the canvas)
 
 this.pokePlayerCollision()                                
-
 this.addPokeball()
 this.pokeballArr.forEach((eachPokeball) =>{
     eachPokeball.pokeballMovement()
   })
-this.pokeballOut()
 
+this.pokeballOut()
 
 
 //* ELEMENTS ON CANVAS
@@ -116,10 +143,8 @@ this.pokeballArr.forEach((eachPokeball) => {
   eachPokeball.draw()
 })
 
-
-
 //*  RECURSION 
-if(this.isGameOn === true){
+if (this.isGameOn === true){
   requestAnimationFrame(this.gameLoop)
 }
  }
