@@ -54,18 +54,24 @@ this.isGameOn = true;
     let pokeball = new Pokeball(randomSpawnX);
     this.pokeballArr.push(pokeball)
 
-    if (this.score >= 100)
+    if (this.score >= 0 )
+     {pokeball.speed = 2
+     pokeball.img.src ="../Images/Pokéball.png"}
+
+    if (this.score >= 150 && this.score < 300 )
      {pokeball.speed = 2.5
      pokeball.img.src ="../Images/greatball.png"}
-
-  /*  if (this.score >= 300)
+     
+    if (this.score >= 300 && this.score < 500 )
       {pokeball.speed = 2.75
-      pokeball.img.src ="../Images/ultraball2.png"}
-  */
-    else if (this.score >= 300)
+      pokeball.img.src ="../Images/ultraball.png"}
+    
+    if (this.score >= 400)
       {pokeball.speed = 3
-       pokeball.img.src ="../Images/masterball.png"}
-  };
+       pokeball.img.src ="../Images/master-ball.png"}
+  
+      }
+      
 }
  //? Al principio aparecen las Pokéball pero no siguen generándose y apareciendo.
  //? Estoy siguiendo como referencia el método de aparición de los tubos que usamos en el flappy bird

@@ -108,3 +108,17 @@ canvas{
    width: 230px;
    height: 150px;
 }
+
+aside {
+    display: inline;
+    position: fixed;
+    top: 610px;
+    left: 1300px;
+}
+aside img {
+    width: 400px;
+    height: 300px;
+    position: fixed;
+    
+    
+}
