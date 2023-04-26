@@ -1,7 +1,7 @@
 class Pokeball {
     constructor(posX){
     this.img = new Image()
-    this.img.src= "../Images/Pokéball.png"
+    this.img.src= "Images/Pokéball.png"
     this.x = posX;
     this.y = 0; 
     this.w = 45;

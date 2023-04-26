@@ -4,7 +4,7 @@ class Game {
 
 //* Background
     this.background = new Image()
-    this.background.src= "../Images/Bulbasaur-background.png"  //! Background used to be different but didn't look too good
+    this.background.src= "Images/Bulbasaur-background.png" //! Background used to be different but didn't look too good
 
     
 //* POKÉMON
@@ -22,7 +22,7 @@ this.score = Number(scoreDOM.innerText) //! Implemented function to update the s
                                         //! Needs improvement so the score goes up each time you destroy a Pokéball.
 
 //* MUSIC
-this.mainTheme = new Audio("../Sounds/Pokemon-BlueRed-Route-1.mp3");
+this.mainTheme = new Audio("Sounds/Pokemon-BlueRed-Route-1.mp3");
 this.mainTheme.loop = true;
 
 
@@ -56,22 +56,22 @@ this.isGameOn = true;
 
     if (this.score >= 0 )
      {pokeball.speed = 2
-     pokeball.img.src ="../Images/Pokéball.png"}
+     pokeball.img.src ="Images/Pokéball.png"}
 
     if (this.score >= 150 && this.score < 300 )
      {pokeball.speed = 2.5
-     pokeball.img.src ="../Images/greatball.png"}
+     pokeball.img.src ="Images/greatball.png"}
      
     if (this.score >= 300 && this.score < 500 )
       {pokeball.speed = 2.75
-      pokeball.img.src ="../Images/ultraball.png"}
+      pokeball.img.src ="Images/ultraball.png"}
     
     if (this.score >= 400)
       {pokeball.speed = 3
-       pokeball.img.src ="../Images/master-ball.png"}
+       pokeball.img.src ="Images/master-ball.png"}
   
       }
-      
+
 }
  //? Al principio aparecen las Pokéball pero no siguen generándose y apareciendo.
  //? Estoy siguiendo como referencia el método de aparición de los tubos que usamos en el flappy bird

@@ -3,7 +3,7 @@ class Pokemon {
     constructor(){
         //!Pokémon(Player) properties
     this.img = new Image()
-    this.img.src= "../Images/bulbasaur.png"  //! Pokémon was Charmander at first, I changed it
+    this.img.src= "Images/bulbasaur.png"  //! Pokémon was Charmander at first, I changed it
     this.x = 180;
     this.y = 500; 
     this.w = 150;
