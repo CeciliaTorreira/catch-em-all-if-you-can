@@ -57,5 +57,12 @@ window.addEventListener("keydown", (event)=>{
 })  
 
 
+window.addEventListener("keydown", ()=>{
+  if (event.code === "Space"){
+    gameObj.pokemonAttack()
+    console.log("Pressing space")
+  }
+
+})
 
 

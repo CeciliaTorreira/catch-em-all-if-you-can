@@ -47,6 +47,6 @@ class Pokemon {
     //  this.y -= 4;                                    //todo Will work on that as a
     
   };
-
-  
 }
+
+

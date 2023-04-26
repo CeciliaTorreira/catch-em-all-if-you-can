@@ -15,6 +15,8 @@ this.pokemon = new Pokemon() //! Creating a Pokémon/Player using the class in P
   this.pokeball = new Pokeball()
   console.log(this.pokeball)
   this.pokeballArr = [];
+
+  
   
 //* COUNTER
 
@@ -24,6 +26,7 @@ this.score = Number(scoreDOM.innerText) //! Implemented function to update the s
 //* MUSIC
 this.mainTheme = new Audio("Sounds/Pokemon-BlueRed-Route-1.mp3");
 this.mainTheme.loop = true;
+this.razorLeafSound = new Audio("Sounds/Razor-Leaf-Part-2.mp3")
 
 
 //* IS GAME ON 
@@ -54,19 +57,15 @@ this.isGameOn = true;
     let pokeball = new Pokeball(randomSpawnX);
     this.pokeballArr.push(pokeball)
 
-    if (this.score >= 0 )
-     {pokeball.speed = 2
-     pokeball.img.src ="Images/Pokéball.png"}
-
     if (this.score >= 150 && this.score < 300 )
      {pokeball.speed = 2.5
      pokeball.img.src ="Images/greatball.png"}
      
-    if (this.score >= 300 && this.score < 500 )
+    else if (this.score >= 300 && this.score < 450 )
       {pokeball.speed = 2.75
       pokeball.img.src ="Images/ultraball.png"}
     
-    if (this.score >= 400)
+    else if (this.score >= 450)
       {pokeball.speed = 3
        pokeball.img.src ="Images/master-ball.png"}
   
@@ -112,11 +111,18 @@ gameOver = () => {
   this.mainTheme.pause();
   canvasDOM.style.display = "none";
   gameOverScreenDOM.style.display = "flex";
-  
 
 
 }  
 
+//* POKÉMON ATTACK
+
+pokemonAttack = () =>{
+  this.attack = new RazorLeaf(this.pokemon.x, this.pokemon.y);
+  this.razorLeafSound.play()
+
+}
+ 
 
 //! EJECUTION
 
