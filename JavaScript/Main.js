@@ -41,7 +41,7 @@ const replayGame = () =>{
   gameObj = new Game();
   gameObj.gameLoop();
 
-}
+}   
 
 
 

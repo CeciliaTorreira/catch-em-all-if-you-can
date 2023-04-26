@@ -33,6 +33,12 @@ this.razorLeafSound = new Audio("Sounds/Razor-Leaf-Part-2.mp3")
 
 this.isGameOn = true;
 
+
+//* POKÉMON ATTACK
+ 
+this.attack = undefined;
+ 
+
 }
 
 
@@ -77,7 +83,7 @@ this.isGameOn = true;
 //! SORTED
    
  pokeballOut = () => {
-   if (this.pokeballArr[0].y === canvas.height){
+   if (this.pokeballArr[0].y > canvas.height){
     this.pokeballArr.shift()
     this.score += 10;
     scoreDOM.innerText = this.score
@@ -120,7 +126,7 @@ gameOver = () => {
 pokemonAttack = () =>{
   this.attack = new RazorLeaf(this.pokemon.x, this.pokemon.y);
   this.razorLeafSound.play()
-
+  
 }
  
 
@@ -143,6 +149,7 @@ this.pokeballArr.forEach((eachPokeball) =>{
     eachPokeball.pokeballMovement()
   })
 
+
 this.pokeballOut()
 
 
@@ -150,6 +157,10 @@ this.pokeballOut()
 this.drawBackground()
 
 this.pokemon.draw()
+if (this.attack !== undefined){
+  this.attack.draw()
+  this.attack.razorLeafMovement() 
+}
 
 this.pokeballArr.forEach((eachPokeball) => {
   eachPokeball.draw()
