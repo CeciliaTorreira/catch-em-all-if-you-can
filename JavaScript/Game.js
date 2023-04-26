@@ -27,6 +27,7 @@ this.score = Number(scoreDOM.innerText) //! Implemented function to update the s
 this.mainTheme = new Audio("Sounds/Pokemon-BlueRed-Route-1.mp3");
 this.mainTheme.loop = true;
 this.razorLeafSound = new Audio("Sounds/Razor-Leaf-Part-2.mp3")
+this.gameOverSound = new Audio("Sounds/Bulbasaur.mp3")
 
 
 //* IS GAME ON 
@@ -117,14 +118,14 @@ gameOver = () => {
   this.mainTheme.pause();
   canvasDOM.style.display = "none";
   gameOverScreenDOM.style.display = "flex";
-
+  this.gameOverSound.play()
 
 }  
 
 //* POKÉMON ATTACK
 
 pokemonAttack = () =>{
-  this.attack = new RazorLeaf(this.pokemon.x, this.pokemon.y);
+  this.attack = new RazorLeaf(this.pokemon.x+70, this.pokemon.y+35);
   this.razorLeafSound.play()
   
 }
