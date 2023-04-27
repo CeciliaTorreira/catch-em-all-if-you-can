@@ -28,7 +28,7 @@ this.mainTheme = new Audio("Sounds/Pokemon-BlueRed-Route-1.mp3");
 this.mainTheme.loop = true;
 this.razorLeafSound = new Audio("Sounds/Razor-Leaf-Part-2.mp3")
 this.gameOverSound = new Audio("Sounds/Bulbasaur.mp3")
-
+this.pokeballDestroyed = new Audio("Sounds/Instant-catch-sound.mp3")
 
 //* IS GAME ON 
 
@@ -110,6 +110,32 @@ this.gameOver()
  })
 }
 
+
+//* POKÉMON ATTACK AND POKÉBALL COLLISSION 
+
+attackPokeballCollision = () => {
+
+  this.pokeballArr.forEach((eachPokeball) =>{
+  
+   if ( 
+    this.attack !== undefined &&
+    this.attack.x < eachPokeball.x + eachPokeball.w &&
+    this.attack.x + this.attack.w > eachPokeball.x &&
+    this.attack.y < eachPokeball.y + eachPokeball.h &&
+    this.attack.h + this.attack.y > eachPokeball.y
+  )  {
+    this.attack = undefined
+    this.score += 20;
+    scoreDOM.innerText = this.score
+   // this.pokeballDestroyed.play()
+  console.log("Pokéball destroyed") 
+     } 
+   })
+  }
+
+
+
+
 //* GAME OVER 
 
 gameOver = () => {
@@ -144,7 +170,9 @@ this.mainTheme.play()
 // this.pokeball.pokeballMovement()   //! POkéball falling added to test for later 
                                    //! (I'll create an array and make them randomly appear falling from the top of the canvas)
 
-this.pokePlayerCollision()                                
+this.pokePlayerCollision()     
+this.attackPokeballCollision()
+
 this.addPokeball()
 this.pokeballArr.forEach((eachPokeball) =>{
     eachPokeball.pokeballMovement()
