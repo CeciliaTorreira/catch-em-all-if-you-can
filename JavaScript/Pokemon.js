@@ -27,23 +27,23 @@ class Pokemon {
   pokemonMovement = (event) => {
     if (event.code === "ArrowRight" && this.x <= canvas.width - 110) {
       this.x += this.speed;
-      console.log("Pressing right key")
+      
     }
     if (event.code === "ArrowLeft" && this.x >= -40) {
       this.x -= this.speed;
-      console.log("Pressing left key")
+      
     }
     if (event.code === "ArrowUp" && this.y >= -50) {
       this.y -= this.speed;
-      console.log("Pressing up key")
+      
     }
     if (event.code === "ArrowDown" && this.y <= canvas.height - this.w) {
       this.y += this.speed;
-      console.log("Pressing down key")        //! Console log working.
+      
     }
     //if (event.code === "ArrowRight" && event.code === "ArrowUp" && this.x <= canvas.width - this.w) {
     //  this.x += 4;                                    //! I achieved diagonal movement but it was not as good as I expected.
-    //  this.y -= 4;                                    //todo Will work on that as a
+    //  this.y -= 4;                                    
     
   };
 }

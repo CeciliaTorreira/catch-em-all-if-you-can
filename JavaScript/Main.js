@@ -1,13 +1,13 @@
-console.log("Comprobando")
+
 
 //* GLOBAL VARIABLES 
-const canvasDOM = document.querySelector("#canvas") //!CANVAS
-const startButtonDOM = document.querySelector(".startgame, .startbutton") //! START BUTTON PICTURE
-const startGameDOM = document.querySelector(".startgame") //! START SCREEN
+const canvasDOM = document.querySelector("#canvas")
+const startButtonDOM = document.querySelector(".startgame, .startbutton") 
+const startGameDOM = document.querySelector(".startgame") //! START GAME SCREEN
 const gameOverButtonDOM = document.querySelector(".gameoverbutton")
 const gameOverScreenDOM = document.querySelector(".gameover")
 const replayDOM = document.querySelector(".restartbutton")
-const scoreDOM = document.querySelector("h2") //! SCORE
+const scoreDOM = document.querySelector("h2") 
 const ctx = canvasDOM.getContext("2d")
 
 
@@ -17,7 +17,6 @@ let gameObj;
 //* FUNCTIONS SECTIONS
 
 const startGame = ()=>{
-console.log("Iniciando juego")
 
 //1. Changing screens
 canvasDOM.style.display = "block";
@@ -25,8 +24,8 @@ startGameDOM.style.display ="none";
 scoreDOM.innerText = 000;
 
 //2. Creating elements
-gameObj = new Game()  //! Class created in Game.js
-console.log(gameObj)
+gameObj = new Game()  
+
 
 //3 Starting recursion
 gameObj.gameLoop()
@@ -60,7 +59,6 @@ window.addEventListener("keydown", (event)=>{
 window.addEventListener("keydown", ()=>{
   if (event.code === "Space"){
     gameObj.pokemonAttack()
-    console.log("Pressing space")
   }
 
 })

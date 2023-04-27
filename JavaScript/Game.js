@@ -4,24 +4,24 @@ class Game {
 
 //* Background
     this.background = new Image()
-    this.background.src= "Images/Bulbasaur-background.png" //! Background used to be different but didn't look too good
+    this.background.src= "Images/Bulbasaur-background.png"
 
     
 //* POKÉMON
-this.pokemon = new Pokemon() //! Creating a Pokémon/Player using the class in Pokemon.js
- console.log(this.pokemon)
+this.pokemon = new Pokemon()
+ 
   
 //* POKÉBALLS
   this.pokeball = new Pokeball()
-  console.log(this.pokeball)
+  
   this.pokeballArr = [];
 
   
   
 //* COUNTER
 
-this.score = Number(scoreDOM.innerText) //! Implemented function to update the score each time a Pokéball goes out of the canvas.
-                                        //! Needs improvement so the score goes up each time you destroy a Pokéball.
+this.score = Number(scoreDOM.innerText) 
+                                        
 
 //* MUSIC
 this.mainTheme = new Audio("Sounds/Pokemon-BlueRed-Route-1.mp3");
@@ -81,9 +81,7 @@ this.isPokemonAttacking = true
       }
 
 }
- //? Al principio aparecen las Pokéball pero no siguen generándose y apareciendo.
- //? Estoy siguiendo como referencia el método de aparición de los tubos que usamos en el flappy bird
-//! SORTED
+
    
  pokeballOut = () => {
    if (this.pokeballArr[0].y > canvas.height){
@@ -95,8 +93,9 @@ this.isPokemonAttacking = true
 
  //* COLLISIONS
 
- //* Player and Pokéball collision
-  pokePlayerCollision = () => {
+ //* PLAYER AND POKÉBALL COLLISION
+
+pokePlayerCollision = () => {
 
 this.pokeballArr.forEach((eachPokeball) =>{
 
@@ -105,10 +104,10 @@ this.pokeballArr.forEach((eachPokeball) =>{
   this.pokemon.x  + this.pokemon.w-50 > eachPokeball.x &&
   this.pokemon.y-50  < eachPokeball.y-50 + eachPokeball.h-50 &&
   this.pokemon.h + this.pokemon.y > eachPokeball.y+50
-)  {
-console.log("You got caught!")  //! We'll implement game over later
+)  
+{
 this.gameOver()
-   } 
+} 
  })
 }
 
@@ -125,7 +124,8 @@ attackPokeballCollision = () => {
     this.attack.x + this.attack.w > eachPokeball.x &&
     this.attack.y < eachPokeball.y + eachPokeball.h &&
     this.attack.h + this.attack.y > eachPokeball.y
-  )  {
+  ) 
+   {
     this.attack = undefined
     this.score += 20;
     scoreDOM.innerText = this.score
@@ -133,7 +133,7 @@ attackPokeballCollision = () => {
     let destroyedPokeball = this.pokeballArr.indexOf(eachPokeball)
     this.pokeballArr.splice(destroyedPokeball, 1)
     this.pokemonAttackArr.shift(this.attack)
-  console.log("Pokéball destroyed") 
+ 
      } 
    })
   }
@@ -180,15 +180,19 @@ pokemonAttackOut = () => {
   gameLoop = () => {
 
 //*  CLEAR CANVAS
+
 this.clearCanvas()
 
-//* MUSIC
-this.mainTheme.play()
-//* OBJECTS MOVEMENTS AND ACTIONS
-// this.pokeball.pokeballMovement()   //! POkéball falling added to test for later 
-                                   //! (I'll create an array and make them randomly appear falling from the top of the canvas)
 
-this.pokePlayerCollision()     
+//* MUSIC
+
+this.mainTheme.play()
+
+
+//* OBJECTS MOVEMENTS AND ACTIONS
+          
+this.pokePlayerCollision()  
+
 this.attackPokeballCollision()
 
 this.addPokeball()
@@ -206,6 +210,7 @@ if (this.attack !== undefined)
 
 
 //* ELEMENTS ON CANVAS
+
 this.drawBackground()
 
 this.pokemon.draw()
@@ -220,6 +225,7 @@ this.pokeballArr.forEach((eachPokeball) => {
 })
 
 //*  RECURSION 
+
 if (this.isGameOn === true){
   requestAnimationFrame(this.gameLoop)
 }
