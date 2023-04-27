@@ -8,8 +8,7 @@ class Pokemon {
     this.y = 500; 
     this.w = 150;
     this.h = 200;
-                  //* At first I added the pokemon speed thinking I could make it go constantly up creating the effect you were advancing through
-                  //* the canvas and you had to control that to avoid the enemies but it didn't work out with the background and I discarded the idea
+    this.speed = 8;
 
 
      
@@ -27,19 +26,19 @@ class Pokemon {
  
   pokemonMovement = (event) => {
     if (event.code === "ArrowRight" && this.x <= canvas.width - 110) {
-      this.x += 6;
+      this.x += this.speed;
       console.log("Pressing right key")
     }
     if (event.code === "ArrowLeft" && this.x >= -40) {
-      this.x -= 6;
+      this.x -= this.speed;
       console.log("Pressing left key")
     }
     if (event.code === "ArrowUp" && this.y >= -50) {
-      this.y -= 6;
+      this.y -= this.speed;
       console.log("Pressing up key")
     }
     if (event.code === "ArrowDown" && this.y <= canvas.height - this.w) {
-      this.y += 6;
+      this.y += this.speed;
       console.log("Pressing down key")        //! Console log working.
     }
     //if (event.code === "ArrowRight" && event.code === "ArrowUp" && this.x <= canvas.width - this.w) {

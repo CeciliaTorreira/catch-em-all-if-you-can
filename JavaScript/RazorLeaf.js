@@ -6,7 +6,7 @@ class RazorLeaf {
     this.y = posY; 
     this.w = 15;
     this.h = 25;
-    this.speed = 1.60; 
+    this.speed = 2.75; 
     }
 
     //* METHODS AND ACTIONS

@@ -25,9 +25,11 @@ this.score = Number(scoreDOM.innerText) //! Implemented function to update the s
 
 //* MUSIC
 this.mainTheme = new Audio("Sounds/Pokemon-BlueRed-Route-1.mp3");
+this.mainTheme.volume = 0.60;
 this.mainTheme.loop = true;
 this.razorLeafSound = new Audio("Sounds/Razor-Leaf-Part-2.mp3")
 this.gameOverSound = new Audio("Sounds/Bulbasaur.mp3")
+this.gameOverSound.volume = 0.50;
 this.pokeballDestroyed = new Audio("Sounds/Instant-catch-sound.mp3")
 
 //* IS GAME ON 
@@ -58,7 +60,7 @@ this.isPokemonAttacking = true
  addPokeball = () =>{
   
   if (this.pokeballArr.length === 0 || 
-    this.pokeballArr[this.pokeballArr.length - 1].y >= canvasDOM.height/4)
+    this.pokeballArr[this.pokeballArr.length - 1].y >= canvasDOM.height/6)
   {
     let randomSpawnX = Math.random() * (canvasDOM.width - this.pokeball.w)
     let pokeball = new Pokeball(randomSpawnX);
@@ -127,7 +129,7 @@ attackPokeballCollision = () => {
     this.attack = undefined
     this.score += 20;
     scoreDOM.innerText = this.score
-   // this.pokeballDestroyed.play()
+    this.pokeballDestroyed.play()
     let destroyedPokeball = this.pokeballArr.indexOf(eachPokeball)
     this.pokeballArr.splice(destroyedPokeball, 1)
     this.pokemonAttackArr.shift(this.attack)
@@ -154,11 +156,17 @@ gameOver = () => {
 //* POKÉMON ATTACK
 
 pokemonAttack = () =>{
-  if (this.pokemonAttackArr.length === 0) {
+  if (this.pokemonAttackArr.length === 0 && this.isPokemonAttacking === true) {
   this.attack = new RazorLeaf(this.pokemon.x+70, this.pokemon.y+35);
   this.razorLeafSound.play()
   this.pokemonAttackArr.push(this.attack)
-  }
+  this.isPokemonAttacking = false
+  setTimeout(() => {
+    this.isPokemonAttacking = true;
+  }, 4000);
+  
+  
+}
 }
 
 pokemonAttackOut = () => {
