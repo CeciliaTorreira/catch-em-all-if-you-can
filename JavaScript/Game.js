@@ -38,8 +38,8 @@ this.isGameOn = true;
 //* POKÉMON ATTACK
  
 this.attack = undefined;
- 
-
+this.pokemonAttackArr = [];
+this.isPokemonAttacking = true
 }
 
 
@@ -58,22 +58,22 @@ this.attack = undefined;
  addPokeball = () =>{
   
   if (this.pokeballArr.length === 0 || 
-    this.pokeballArr[this.pokeballArr.length - 1].y >= canvasDOM.height/3)
+    this.pokeballArr[this.pokeballArr.length - 1].y >= canvasDOM.height/4)
   {
     let randomSpawnX = Math.random() * (canvasDOM.width - this.pokeball.w)
     let pokeball = new Pokeball(randomSpawnX);
     this.pokeballArr.push(pokeball)
 
-    if (this.score >= 150 && this.score < 300 )
-     {pokeball.speed = 2.5
+    if (this.score >= 200 && this.score < 500 )
+     {pokeball.speed = 4
      pokeball.img.src ="Images/greatball.png"}
      
-    else if (this.score >= 300 && this.score < 450 )
-      {pokeball.speed = 2.75
+    else if (this.score >= 500 && this.score < 750 )
+      {pokeball.speed = 4.25
       pokeball.img.src ="Images/ultraball.png"}
     
-    else if (this.score >= 450)
-      {pokeball.speed = 3
+    else if (this.score >= 750)
+      {pokeball.speed = 5
        pokeball.img.src ="Images/master-ball.png"}
   
       }
@@ -128,6 +128,9 @@ attackPokeballCollision = () => {
     this.score += 20;
     scoreDOM.innerText = this.score
    // this.pokeballDestroyed.play()
+    let destroyedPokeball = this.pokeballArr.indexOf(eachPokeball)
+    this.pokeballArr.splice(destroyedPokeball, 1)
+    this.pokemonAttackArr.shift(this.attack)
   console.log("Pokéball destroyed") 
      } 
    })
@@ -151,11 +154,18 @@ gameOver = () => {
 //* POKÉMON ATTACK
 
 pokemonAttack = () =>{
+  if (this.pokemonAttackArr.length === 0) {
   this.attack = new RazorLeaf(this.pokemon.x+70, this.pokemon.y+35);
   this.razorLeafSound.play()
-  
+  this.pokemonAttackArr.push(this.attack)
+  }
 }
- 
+
+pokemonAttackOut = () => {
+  if (this.attack !== undefined && this.attack.y < 0){
+   this.pokemonAttackArr.shift()
+  };
+}
 
 //! EJECUTION
 
@@ -181,11 +191,17 @@ this.pokeballArr.forEach((eachPokeball) =>{
 
 this.pokeballOut()
 
+if (this.attack !== undefined)
+{
+  this.pokemonAttackOut()
+}
+
 
 //* ELEMENTS ON CANVAS
 this.drawBackground()
 
 this.pokemon.draw()
+
 if (this.attack !== undefined){
   this.attack.draw()
   this.attack.razorLeafMovement() 
