@@ -1,0 +1,102 @@
+
+# Catch 'em all if you can
+
+## [Play the Game!](https://ceciliatorreira.github.io/catch-em-all-if-you-can/)
+
+![Game Logo](www.your-image-logo-here.com)
+
+
+# Description
+
+In this game you're a Bulbasaur trying to avoid getting caught.
+Everytime you dodge or destroy a Pokéball you get points and your score goes up.
+Be careful because the Pokéball speed will also increase.
+
+
+# Main Functionalities
+
+- The player can move using the four arrow keys.
+- You can press the Space bar to attack. This action has a four seconds cooldown so use this wisely.
+- Pokéballs will fall from the top of the canvas, if they hit you it's game over.
+- Your only options are dodging or destroying them.
+- The game difficulty increases as your score goes up, this means Pokéballs will be faster.
+- You get 10 per Pokéball you dodge and 20 points if you destroy them.
+
+# Backlog Functionalities
+
+- I want to improve playuer's movement.
+- Add the ability to move diagonally.
+- Add enemy Pokémon with their own attacks.
+
+# Technologies used
+
+- HTML
+- CSS
+- JavaScript
+- JS Classes
+- JS Canvas
+- JS Audio() and JS Image()
+- DOM Manipulation
+
+# States
+
+- Start Screen
+- Game Screen
+- Game Over Screen
+
+You can see the game instructions and score in all of them.
+
+# Proyect Structure
+
+## Main.js
+
+
+## Game.js
+
+
+## RazorLeaf.js
+
+
+## Pokeball.js
+
+
+## Pokemon.js
+
+- List here sections for your your different JS files.
+- One for main.js to manage DOM elements, one for the Game class and one for each other class file of your game.
+- Inside each file you can list the functions, clases, properties and methods of your code.
+
+Example:
+
+## main.js
+
+- list here the functions names of your main.js
+
+## Game.js
+
+- Game () {
+    this.player;
+}
+
+## Player.js 
+
+- Player () {
+    this.x;
+    this.y;
+    this.w;
+    this.h;
+}
+- drawPlayer () {}
+- movePlayer () {}
+
+
+# Extra Links 
+
+### Trello
+[Link](https://trello.com/b/N76bLGkV/pok%C3%A9mon)
+
+### Slides
+[Link](www.your-slides-url-here.com)
+
+## Deploy
+[Link](https://ceciliatorreira.github.io/catch-em-all-if-you-can/)

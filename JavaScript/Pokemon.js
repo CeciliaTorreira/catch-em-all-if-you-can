@@ -8,7 +8,7 @@ class Pokemon {
     this.y = 500; 
     this.w = 150;
     this.h = 200;
-    this.speed = 8;
+    this.speed = 7;
 
 
      

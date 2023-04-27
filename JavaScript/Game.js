@@ -66,7 +66,7 @@ this.isPokemonAttacking = true
     let pokeball = new Pokeball(randomSpawnX);
     this.pokeballArr.push(pokeball)
 
-    if (this.score >= 200 && this.score < 500 )
+    if (this.score >= 250 && this.score < 500 )
      {pokeball.speed = 4
      pokeball.img.src ="Images/greatball.png"}
      
