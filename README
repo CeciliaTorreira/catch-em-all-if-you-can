@@ -48,55 +48,97 @@ You can see the game instructions and score in all of them.
 
 # Proyect Structure
 
-## Main.js
-
-
-## Game.js
-
-
-## RazorLeaf.js
-
-
-## Pokeball.js
-
-
-## Pokemon.js
-
-- List here sections for your your different JS files.
-- One for main.js to manage DOM elements, one for the Game class and one for each other class file of your game.
-- Inside each file you can list the functions, clases, properties and methods of your code.
-
-Example:
-
 ## main.js
 
-- list here the functions names of your main.js
+- startGame();
+- replayGame()
 
 ## Game.js
 
 - Game () {
-    this.player;
+    - this.player;
+    - this.background;
+    - this.pokemon;
+    - this.pokeball;
+    - this.pokeballArr;
+    - this.score;
+
+    - this.mainTheme;
+    - this.razorLeafSound;
+    - this.gameOverSound;
+    - this.pokeballDestroyed;
+
+    - this.isGameOn;
+
+    - this.attack;
+    - this.pokemonAttackArr;
+    - this.isPokemonAttacking;
+    
+
+
+- gameLoop(){
+
+    - clearCanvas()
+    - mainTheme.play()
+    - this.pokePlayerCollision()
+    - drawBackground()
+    - pokemon.draw()
+    - addPokeball()
+    - pokeballOut()
+    - pokemonAttack()
+    - pokemonAttackOut()
+
+ }
 }
 
-## Player.js 
+## RazorLeaf.js
+  - RazorLeaf() 
+     - this.img;
+     - this.img.src;
+     - this.x;
+     - this.y;
+     - this.w;
+     - this.h;
+     - this.speed;
+ 
+ - draw()
+ - razorLeafMovement()
 
-- Player () {
-    this.x;
-    this.y;
-    this.w;
-    this.h;
-}
-- drawPlayer () {}
-- movePlayer () {}
+## Pokeball.js
 
+- Pokeball()
+   - this.img;
+   - this.img.src;
+   - this.x;
+   - this.y;
+   - this.w;
+   - this.h;
+   - this.speed;
 
+- draw()
+- pokeballMovement()
+
+## Pokemon.js
+
+- Pokemon()
+   - this.img;
+   - this.img.src;
+   - this.x;
+   - this.y;
+   - this.w;
+   - this.h;
+   - this.speed;
+
+- draw()
+- pokemonMovement()
 # Extra Links 
+
 
 ### Trello
 [Link](https://trello.com/b/N76bLGkV/pok%C3%A9mon)
 
 ### Slides
-[Link](www.your-slides-url-here.com)
+[Link](https://www.canva.com/design/DAFhX3BEAkE/alrroqw69ujRx1LNcKtpJQ/watch)
 
 ## Deploy
 [Link](https://ceciliatorreira.github.io/catch-em-all-if-you-can/)
