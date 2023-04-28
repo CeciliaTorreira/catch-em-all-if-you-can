@@ -25,12 +25,12 @@ this.score = Number(scoreDOM.innerText)
 
 //* MUSIC
 this.mainTheme = new Audio("Sounds/Pokemon-BlueRed-Route-1.mp3");
-this.mainTheme.volume = 0.05;
+this.mainTheme.volume = 0.03;
 this.mainTheme.loop = true;
 this.razorLeafSound = new Audio("Sounds/Razor-Leaf-Part-2.mp3")
-this.razorLeafSound.volume = 0.05;
+this.razorLeafSound.volume = 0.03;
 this.gameOverSound = new Audio("Sounds/Bulbasaur.mp3")
-this.gameOverSound.volume = 0.05;
+this.gameOverSound.volume = 0.03;
 this.pokeballDestroyed = new Audio("Sounds/Instant-catch-sound.mp3")
 
 //* IS GAME ON 
