@@ -25,7 +25,7 @@ this.score = Number(scoreDOM.innerText)
 
 //* MUSIC
 this.mainTheme = new Audio("Sounds/Pokemon-BlueRed-Route-1.mp3");
-this.mainTheme.volume = 0.03;
+this.mainTheme.volume = 0.04;
 this.mainTheme.loop = true;
 this.razorLeafSound = new Audio("Sounds/Razor-Leaf-Part-2.mp3")
 this.razorLeafSound.volume = 0.03;
