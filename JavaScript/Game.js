@@ -32,7 +32,7 @@ this.razorLeafSound.volume = 0.03;
 this.gameOverSound = new Audio("Sounds/Bulbasaur.mp3")
 this.gameOverSound.volume = 0.03;
 this.pokeballDestroyed = new Audio("Sounds/Instant-catch-sound.mp3")
-
+this.pokeballDestroyed.volume = 0.03;
 //* IS GAME ON 
 
 this.isGameOn = true;
